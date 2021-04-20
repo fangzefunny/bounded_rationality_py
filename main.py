@@ -40,8 +40,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 
 from scipy.special import logsumexp # for partition function
-from matplotlib.widgets import Slider # interact plot 
- 
+
 # define the saving path
 path = os.path.dirname(os.path.abspath(__file__))
 
