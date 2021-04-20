@@ -589,8 +589,12 @@ def show_predator_prey_util() :
     plt.xlabel( 'observed animal size')
     plt.ylabel( 'action')
     plt.colorbar()
-    fig_name = f'{path}/predator_prey_utility.png'
-    plt.savefig( fig_name)
+    fig_name = f'{path}/figures/predator_prey_utility.png'
+    try:
+        plt.savefig( fig_name)
+    except:
+        os.mkdir(f'{path}/figures')
+        plt.savefig
 
 def show_medical_util():
     _, obs_vars, _, _, act_vars, util_mat = setup_medical_example()
@@ -617,8 +621,12 @@ def show_medical_util():
     plt.xlabel( 'Disease type')
     plt.ylabel( 'Treatment')
     plt.colorbar()
-    fig_name = f'{path}/medical_utility.png'
-    plt.savefig( fig_name)
+    fig_name = f'{path}/figures/medical_utility.png'
+    try:
+        plt.savefig( fig_name)
+    except:
+        os.mkdir(f'{path}/figures')
+        plt.savefig
 
 def illustrate_cascade_channel( lamb, beta1, beta2, beta3):
     '''REPLICATE THE FIG6
@@ -776,7 +784,7 @@ def illustrate_cascade_channel( lamb, beta1, beta2, beta3):
     plt.bar( x+width/2,  RD_group, width, label='learnt ψ_RD(s|o)', color='royalblue')
     plt.xticks( x, groups)
     plt.ylabel( 'values')
-    plt.ylim([ 0, 3.8])
+    plt.ylim([ 0, 4.2])
     plt.legend()
 
     # Panel D: visual the RD optimized percpetion channel ψ_RD(s|o)
@@ -814,10 +822,10 @@ def illustrate_cascade_channel( lamb, beta1, beta2, beta3):
     plt.bar( x+width/2,  RD_group, width, label='learnt ψ_RD(s|o)', color='royalblue')
     plt.xticks( x, groups)
     plt.ylabel( 'values')
-    plt.ylim([ 0, 3.8])
+    plt.ylim([ 0, 4.2])
     plt.legend()
     
-    fig_name = f'{path}/cascade_channel-lambda={lamb}-beta1={beta1}-beta2={beta2}.png'
+    fig_name = f'{path}/figures/cascade_channel-lambda={lamb}-beta1={beta1}-beta2={beta2}.png'
     plt.savefig( fig_name)
 
 def get_parl_results( beta1, beta2, beta3, 
@@ -991,7 +999,7 @@ def illustrate_parallel_channel( beta1, beta2, beta3):
     plt.xlabel( 'disease type')
     plt.ylabel( 'treatment')
 
-    fig_name = f'{path}/parallel_channel-beta1={beta1}-beta3={beta3}.png'
+    fig_name = f'{path}/figures/parallel_channel-beta1={beta1}-beta3={beta3}.png'
     plt.savefig( fig_name)
 
 if __name__ == '__main__':
