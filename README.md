@@ -56,9 +56,11 @@ I also had difficulty with understanding the following original codes:
    * The update equations in general Blahut-Arimoto algorithm: As far as I know, when implementing the alternative optimization method, we usually follow: 
         *  xt = argmin f(x, yt-1)
         *  yt = argmin f(xt, y)
+      
      However, in the orginal code (original repo, "ThreeVariableBlahutArimoto.jl" line 323-342), they mentioned of using the old distribution, in another word, they followed a different alternative update schema:
         *  xt = argmin f(x, yt-1)
         *  yt = argmin f(xt-1, y)
+     
      I know the second schema is often used in neural network trainning, but I prefer the first method. Will this different implement the cause of my reproduction failures?
      
 I will analyze the results and back to this section later.
