@@ -32,7 +32,7 @@ This is a python 3.8 script and ideally, it can be run with any python3 interpre
 
     python main.py 
     
-You can tune the hyperparameter λ, β1, β2, β3 as you want while running the code. (locate to line 999)
+You can tune the hyperparameter λ, β1, β2, β3 as you want while running the code. (start from line 1004)
 
 The execution takes less than 1 min, and you will find in the current folder the following figures:
 
