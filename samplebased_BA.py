@@ -15,6 +15,9 @@ import matplotlib.pyplot as plt
 
 from scipy.special import logsumexp # for partition function
 
+# define the saving path
+path = os.path.dirname(os.path.abspath(__file__))
+
 '''
 SEC1: Environment
 '''
@@ -301,3 +304,43 @@ def show_taxonomy_util() :
     except:
         os.mkdir(f'{path}/figures')
         plt.savefig
+
+def sim( ):
+
+    # init for the iteration
+    nA = 3 
+    T = 10
+    V = np.ones( [nA,]) / nA
+    R = np.array( [ 0, 1, 0])
+    p_a = np.ones( [nA,]) / nA
+    beta_sweeps = np.linspace( 0.1, 3000, 1000)
+    lr_v = .1
+    n_target = 2.5
+    history = np.zeros([T,])
+
+    for t in range(T):
+        # update V 
+        V += lr_v * (R - V)
+
+    
+        for beta in beta_sweeps:
+
+            est_n = 1 / np.sum(p_a * np.exp( beta * (V - V.max())))
+            
+            if (est_n - n_target) > 0:
+                history[t] = beta 
+                break 
+    
+    plt.plot( history)
+    plt.show()
+
+if __name__  == '__main__':
+
+    sim()
+
+
+
+
+
+
+    
